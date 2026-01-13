@@ -1,0 +1,308 @@
+{
+  "intents": [
+
+    {
+      "tag": "greeting",
+      "patterns": [
+        "hi",
+        "hello",
+        "hey",
+        "hai",
+        "hii",
+        "helo",
+        "hey there",
+        "hello there",
+        "hi there",
+        "good morning",
+        "good afternoon",
+        "good evening",
+        "hi bot",
+        "hello bot",
+        "hey bot",
+        "hello assistant",
+        "hey assistant"
+      ],
+      "responses": [
+        "Hi 👋 What can I do for you?",
+        "Hello! How can I help you today?",
+        "Hey 🙂 Ask me anything.",
+        "Hello there! How’s your day going?"
+      ]
+    },
+
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "bye",
+        "bye bye",
+        "goodbye",
+        "see you later",
+        "see you soon",
+        "talk to you later",
+        "ok bye",
+        "end chat",
+        "exit chat",
+        "quit chat",
+        "i am leaving",
+        "i am done"
+      ],
+      "responses": [
+        "Bye 👋 Take care!",
+        "See you soon 😊",
+        "Good luck with your studies!",
+        "Farewell! Stay safe."
+      ]
+    },
+
+    {
+      "tag": "thanks",
+      "patterns": [
+        "thanks",
+        "thank you",
+        "thanks a lot",
+        "thank you so much",
+        "appreciate it",
+        "thanks for help",
+        "many thanks",
+        "thanks bot"
+      ],
+      "responses": [
+        "You're welcome 😊",
+        "Happy to help!",
+        "Anytime 😄",
+        "Have a good day!",
+        "No problem! Glad I could help."
+      ]
+    },
+
+    {
+      "tag": "exam_info",
+      "patterns": [
+        "exam date",
+        "exam dates",
+        "semester exam date",
+        "exam schedule",
+        "exam timetable",
+        "exam time table",
+        "exam date announcement"
+      ],
+      "responses": [
+        "Exam dates will be announced by the university.",
+        "Check the student portal or notice board for exam schedule.",
+        "The exam timetable will be shared soon on the official site."
+      ]
+    },
+
+    {
+      "tag": "exam_postponed",
+      "patterns": [
+        "exam postponed",
+        "exam cancelled",
+        "exam delayed",
+        "exam rescheduled",
+        "exam cancellation",
+        "exam delay notice"
+      ],
+      "responses": [
+        "Any exam postponement will be officially announced. Please check college notifications."
+      ]
+    },
+
+    {
+      "tag": "exam_schedule",
+      "patterns": [
+        "exam schedule",
+        "exam date",
+        "exam timetable",
+        "exam rescheduled",
+        "is exam postponed",
+        "exam postponed",
+        "reschedule exam"
+     ],
+     "responses": [
+       "Please check the official notice board or student portal for updated exam schedules."
+      ]
+    }, 
+
+    {
+      "tag": "internal_exam",
+      "patterns": [
+        "internal exam date",
+        "internal exams",
+        "when internal exams",
+        "cia exam",
+        "cia exams",
+        "cia exam date",
+        "internal test date"
+      ],
+      "responses": [
+        "Internal exam dates are informed by your department."
+      ]
+    },
+
+    {
+      "tag": "internal_marks",
+      "patterns": [
+        "internal marks",
+        "cia marks",
+        "when is cia marks",
+        "internal assessment marks",
+        "internal results"
+      ],
+      "responses": [
+        "Internal marks are based on tests, assignments, and attendance."
+      ]
+    },
+
+    {
+      "tag": "exam_result",
+      "patterns": [
+        "exam result",
+        "exam results",
+        "results released",
+        "results published",
+        "semester exam result"
+      ],
+      "responses": [
+        "Results will be published on the university website."
+      ]
+    },
+
+    {
+      "tag": "attendance_requirement",
+      "patterns": [
+        "attendance requirement",
+        "minimum attendance",
+        "attendance percentage",
+        "attendance rule",
+        "attendance criteria"
+      ],
+      "responses": [
+        "Minimum 75% attendance is required to appear for exams."
+      ]
+    },
+
+    {
+      "tag": "attendance_shortage",
+      "patterns": [
+        "attendance shortage",
+        "low attendance",
+        "attendance issue",
+        "attendance problem solve",
+        "attendance shortage problem"
+      ],
+      "responses": [
+        "Attendance below 75% may require special permission from the department."
+      ]
+    },
+
+    {
+      "tag": "library_general",
+      "patterns": [
+        "library",
+        "college library",
+        "library information",
+        "library facilities",
+        "library services"
+      ],
+      "responses": [
+        "The library provides textbooks, journals, and digital resources."
+      ]
+    },
+
+    {
+      "tag": "library_timings",
+      "patterns": [
+        "library timing",
+        "library timings",
+        "library hours",
+        "when is library open",
+        "library open"
+      ],
+      "responses": [
+        "The library is usually open from 9 AM to 5 PM on working days."
+      ]
+    },
+
+    {
+      "tag": "fee_details",
+      "patterns": [
+        "fee details",
+        "fees details",
+        "college fees",
+        "semester fees",
+        "fee structure",
+        "exam fees"
+      ],
+      "responses": [
+        "Fee details are available in the accounts section or college website."
+      ]
+    },
+
+    {
+      "tag": "fees_due",
+      "patterns": [
+        "fees due",
+        "pending fees",
+        "fees balance",
+        "outstanding fees",
+        "fees not paid",
+        "fees pending payment"
+      ],
+      "responses": [
+        "Please clear pending fees at the accounts office."
+      ]
+    },
+
+    {
+      "tag": "scholarship_info",
+      "patterns": [
+        "scholarship",
+        "scholarship details",
+        "government scholarship",
+        "student scholarship",
+        "scholarship info"
+      ],
+      "responses": [
+        "Scholarship details are shared by the college office or portal."
+      ]
+    },
+
+    {
+      "tag": "scholarship_eligibility",
+      "patterns": [
+        "scholarship eligibility",
+        "who can apply scholarship",
+        "scholarship criteria",
+        "scholarship requirements"
+      ],
+      "responses": [
+        "Eligibility depends on income, category, and academic performance."
+      ]
+    },
+
+    {
+      "tag": "scholarship_application",
+      "patterns": [
+        "apply scholarship",
+        "scholarship application",
+        "how to apply scholarship",
+        "scholarship form",
+        "submit scholarship form",
+        "apply for scholarship online"
+      ],
+      "responses": [
+        "Apply through the National Scholarship Portal or college office."
+      ]
+    },
+
+    {
+      "tag": "default",
+      "patterns": [],
+      "responses": [
+        "Hmm 🤔 I didn’t fully get that. Can you rephrase?",
+        "Sorry, I didn't understand. Can you ask differently?"
+      ]
+    }
+  ]
+}
