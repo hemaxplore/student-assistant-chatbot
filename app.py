@@ -68,7 +68,9 @@ def init_db():
     cur.close()
     conn.close()
 
-init_db()
+# ✅ SAFE INIT (Render-friendly)
+if __name__ != "__main__":
+    init_db()
 
 # =========================
 # SAVE MESSAGE (DB + SESSION)
