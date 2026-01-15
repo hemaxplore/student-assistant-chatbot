@@ -1,7 +1,5 @@
-# chatbot_core.py
-
-import json
 import os
+import json
 import pickle
 import re
 import numpy as np
@@ -20,12 +18,17 @@ ENCODER_PATH = os.path.join(MODEL_DIR, "label_encoder.pkl")
 # -----------------------------
 # Load intents
 # -----------------------------
-with open(INTENTS_PATH, "r", encoding="utf-8") as f:
-    intents = json.load(f)
+try:
+    with open(INTENTS_PATH, "r", encoding="utf-8") as f:
+        intents = json.load(f)
+except Exception as e:
+    print("❌ intents.json missing or invalid:", e)
+    intents = {"intents": [{"tag":"default","responses":["Hmm 🤔 I’m not sure. Can you rephrase?"]}]}
 
 # -----------------------------
-# Load trained components
+# Load trained model safely
 # -----------------------------
+MODEL_READY = False
 try:
     model = pickle.load(open(MODEL_PATH, "rb"))
     vectorizer = pickle.load(open(VECTORIZER_PATH, "rb"))
@@ -33,11 +36,11 @@ try:
     MODEL_READY = True
     print("✅ chatbot_core: Model loaded successfully")
 except Exception as e:
+    print("❌ chatbot_core: Model loading failed (skipping ML):", e)
     MODEL_READY = False
-    print("❌ chatbot_core: Model loading failed:", e)
 
 # -----------------------------
-# Hard rule overrides (CRITICAL)
+# Hard rule overrides
 # -----------------------------
 HARD_RULES = {
     # greetings
@@ -73,7 +76,7 @@ HARD_RULES = {
 }
 
 # -----------------------------
-# Text cleaning (MUST match training)
+# Text cleaning
 # -----------------------------
 def clean_text(text: str) -> str:
     text = text.lower().strip()
@@ -82,7 +85,7 @@ def clean_text(text: str) -> str:
     return text
 
 # -----------------------------
-# Predict intent + confidence
+# Predict intent
 # -----------------------------
 def predict_intent(text: str):
     """
@@ -90,25 +93,26 @@ def predict_intent(text: str):
         intent (str)
         confidence (float 0.0–1.0)
     """
-
-    if not MODEL_READY:
-        return "default", 0.0
-
-    cleaned_text = clean_text(text)
-
-    # ✅ STEP 1: Rule-based override (fixes short-text confusion)
-    if cleaned_text in HARD_RULES:
-        return HARD_RULES[cleaned_text], 0.99
-
-    # ✅ STEP 2: ML-based prediction
-    X = vectorizer.transform([cleaned_text])
-    probs = model.predict_proba(X)[0]
-
-    max_index = np.argmax(probs)
-    confidence = float(probs[max_index])
-    intent = label_encoder.inverse_transform([max_index])[0]
-
-    return intent, confidence
+    text_clean = clean_text(text)
+    
+    # Rule-based override
+    if text_clean in HARD_RULES:
+        return HARD_RULES[text_clean], 0.99
+    
+    # ML-based prediction if model loaded
+    if MODEL_READY:
+        try:
+            X = vectorizer.transform([text_clean])
+            probs = model.predict_proba(X)[0]
+            max_index = np.argmax(probs)
+            confidence = float(probs[max_index])
+            intent = label_encoder.inverse_transform([max_index])[0]
+            return intent, confidence
+        except Exception as e:
+            print("ML predict failed:", e)
+    
+    # fallback
+    return "default", 0.0
 
 # -----------------------------
 # Get response
@@ -117,10 +121,10 @@ def get_response(intent_tag: str) -> str:
     for intent in intents["intents"]:
         if intent["tag"] == intent_tag:
             return np.random.choice(intent["responses"])
-
-    # Fallback to default
+    
+    # fallback
     for intent in intents["intents"]:
         if intent["tag"] == "default":
             return np.random.choice(intent["responses"])
-
-    return "Sorry, I didn’t understand that."
+    
+    return "Hmm 🤔 I’m not sure. Can you rephrase?"
