@@ -68,9 +68,10 @@ def init_db():
     cur.close()
     conn.close()
 
-# ✅ SAFE INIT (Render-friendly)
-if __name__ != "__main__":
+try:
     init_db()
+except Exception as e:
+    print("DB init skipped:", e)
 
 # =========================
 # SAVE MESSAGE (DB + SESSION)
