@@ -3,7 +3,6 @@ services:
     name: student-assistant-chatbot
     env: python
     plan: free
+    runtime: python-3.10.10
     buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
-    pythonVersion: 3.10.10
-
