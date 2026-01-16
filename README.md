@@ -13,29 +13,53 @@
 
 ---
 
-## 🚀 Student Assistant Chatbot  
+🌐 Live Demo – Student Assistant Chatbot (Highlighted)
+
+🚀 Try the chatbot live here (Hosted on Render):
+🔗 https://student-assistant-chatbot-7xk8.onrender.com
+
+✨ Experience a real ChatGPT-style student assistant with chat history, animations, and academic support.
+
+---
+
+🚀 Student Assistant Chatbot
 
 🎓 An intelligent chatbot designed to assist students with daily academic needs.
 
-### ✨ Features
-- Secure Login & Logout  
-- ChatGPT-style UI  
-- Chat history stored in **MySQL**  
-- Sticky date headers (Today / Yesterday)  
-- Message timestamps  
-- Bot typing dots animation  
-- Mic listening animation (speech-to-text)  
-- Exam, attendance, library & fee information  
+🌟 Live Website
 
-### 🛠️ Tech Stack
-- **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Flask (Python)  
-- **Database:** MySQL  
+👉 https://student-assistant-chatbot-7xk8.onrender.com
 
-🔗 **Project Repository:**  
-👉 (https://github.com/hemaxplore/student-assistant-chatbot.git) 
+✨ Features
 
-📸 **Chatbot Demo Preview:**  
+Secure Login & Logout
+
+ChatGPT-style UI
+
+Chat history stored in MySQL
+
+Sticky date headers (Today / Yesterday)
+
+Message timestamps
+
+Bot typing dots animation
+
+Mic listening animation (speech-to-text)
+
+Exam, attendance, library & fee information
+
+🛠️ Tech Stack
+
+Frontend: HTML, CSS, JavaScript
+
+Backend: Flask (Python)
+
+Database: MySQL
+
+🔗 Project Repository:
+👉 https://github.com/hemaxplore/student-assistant-chatbot.git
+
+📸 Chatbot Demo Preview:
 <img src="https://raw.githubusercontent.com/abhisheknaiidu/abhisheknaiidu/master/code.gif" width="100%"/>
 
 ---
