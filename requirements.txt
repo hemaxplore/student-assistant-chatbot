@@ -1,15 +1,5 @@
-# Web framework
-flask
-
-# Production server
-gunicorn
-
-# Database connector
-mysql-connector-python
-
-# Machine learning
-numpy
-scikit-learn
-
-# Optional: you can add this if you use pandas later
-pandas
+flask==3.1.2
+gunicorn==21.2.0
+numpy==1.26.4
+scikit-learn==1.3.2
+mysql-connector-python==8.1.1
