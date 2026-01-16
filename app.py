@@ -113,7 +113,7 @@ def login():
             user = cur.fetchone()
             cur.close()
             conn.close()
-        if user or not DB_AVAILABLE:
+        if user or conn is None:
             session.clear()
             session["user"] = email
             session["last_intent"] = None
